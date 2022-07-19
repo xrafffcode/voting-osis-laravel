@@ -53,7 +53,6 @@ class RegisterController extends Controller
             'nama' => ['required', 'string', 'max:255'],
             'nis' => ['required', 'string', 'max:255', 'unique:users'],
             'kelas' => ['required', 'string', 'max:255'],
-            'jurusan' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -70,7 +69,6 @@ class RegisterController extends Controller
             'nama' => $data['nama'],
             'nis' => $data['nis'],
             'kelas' => $data['kelas'],
-            'jurusan' => $data['jurusan'],
             'password' => Hash::make($data['password']),
         ]);
     }

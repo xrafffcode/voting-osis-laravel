@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('nama');
             $table->string('nis')->unique();
             $table->string('kelas');
-            $table->string('jurusan');
             $table->boolean('voting')->default(false);
             $table->string('password');
+            $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
