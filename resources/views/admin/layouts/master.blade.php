@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png">
 
+    <link rel="stylesheet" href="{{ asset('dist/css/lightbox.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/shared/iconly.css') }}">
 
 </head>
@@ -22,15 +23,19 @@
             @include('admin.partials.sidebar')
             @include('admin.partials.header')
 
-            @yield('content')
+            <div class="page-content">
+                @yield('content')
+            </div>
 
             @include('admin.partials.footer')
         </div>
     </div>
-    <script src="assets/js/app.js"></script>
 
-    <script src="assets/js/pages/dashboard.js"></script>
 
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+
+    <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
+    <script src="{{ asset('dist/js/lightbox-plus-jquery.min.js') }}"></script>
 </body>
 
 </html>

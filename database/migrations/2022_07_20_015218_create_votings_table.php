@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('calons', function (Blueprint $table) {
-            $table->id('id_calon');
+        Schema::create('votings', function (Blueprint $table) {
+            $table->id();
 
-            $table->string('nama_ketua');
-            $table->string('nama_wakil');
-            $table->string('foto_calon', 250);
-            $table->text('visi');
-            $table->text('misi');
+            $table->string('nama');
+            $table->string('kelas');
+            $table->foreignId('id_calon');
 
             $table->timestamps();
         });
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calons');
+        Schema::dropIfExists('votings');
     }
 };

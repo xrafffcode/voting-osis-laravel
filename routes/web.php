@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Api\VotingController as ApiVotingController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\VotingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +23,17 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/', HomeController::class . '@index')->name('home');
+    Route::get('/vote/{id}', VotingController::class . '@vote')->name('vote');
 });
 
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin', function () {
-        return view('admin.home');
-    })->name('admin');
+    Route::get('/admin', AdminController::class . '@index')->name('admin.home');
+    Route::get('/calon', AdminController::class . '@calon')->name('admin.calon');
+    Route::post('/addcalon', AdminController::class . '@addCalon')->name('admin.addcalon');
+    Route::get('/deletecalon/{id}', AdminController::class . '@deleteCalon')->name('admin.deletecalon');
+    Route::get('/totalSuara', ApiVotingController::class . '@getSuara')->name('api.totalSuara');
+    Route::get('/pemilihTerkini', ApiVotingController::class . '@getPemilihTerkini')->name('api.pemilihTerkini');
+    Route::get('/sudahMemilih', ApiVotingController::class . '@getSudahMemilih')->name('api.sudahMemilih');
 });

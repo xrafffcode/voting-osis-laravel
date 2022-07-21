@@ -20,7 +20,7 @@ class AdminMiddleware
         if ($request->user()->role == User::ROLE_ADMIN) {
             return $next($request);
         }
-        
+
         abort(401, 'You are not authorized to access this page.');
     }
 }
