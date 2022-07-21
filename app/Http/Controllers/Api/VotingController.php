@@ -20,7 +20,7 @@ class VotingController extends Controller
     public function getPemilihTerkini()
     {
         $pemilihTerkini = Voting::orderBy('created_at', 'desc')->limit(4)->get();
-        return response()->json($pemilihTerkini);
+        return json_decode($pemilihTerkini);
     }
 
     public function getSudahMemilih()

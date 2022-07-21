@@ -172,7 +172,7 @@
 
                 }
             });
-        }, 100);
+        }, 1000);
 
         const number = [0, 1, 2, 3]
 
@@ -183,17 +183,15 @@
                 url: '{{ route('api.pemilihTerkini') }}',
                 success: function(data) {
                     for (let el of number) {
-
                         $('#namapemlih' + [el]).html(data[el].nama);
                         $('#kelaspemilih' + [el]).html(data[el].kelas);
-                        console.log(data[el].nama);
                         if (el === 3) {
                             break;
                         }
                     }
                 }
             });
-        }, 100);
+        }, 1000);
 
         setInterval(function() {
             $.ajax({
@@ -204,6 +202,6 @@
                     $('#sudahmemilih').html(data);
                 }
             });
-        }, 100);
+        }, 1000);
     </script>
 @endsection
