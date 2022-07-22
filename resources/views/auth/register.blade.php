@@ -1,106 +1,104 @@
-@extends('layouts.app')
+@extends('admin.layouts.master')
+
+@section('title', 'Tambah Pemilih')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+    @if (Session::has('success'))
+        <div class="alert alert-success alert-dismissible show fade">
+            {{ Session::get('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    <section id="basic-vertical-layouts">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Masukan Data Pemilih</h4>
+            </div>
+            <div class="card-content">
+                <div class="card-body">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="nama-ketua">{{ __('Nama') }}</label>
+                                        <input id="nama" type="text"
+                                            class="form-control @error('nama') is-invalid @enderror" name="nama"
+                                            value="{{ old('nama') }}" required autocomplete="nama" autofocus>
 
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
-                            @csrf
+                                        @error('nama')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="nama-wakil">{{ __('Nis') }}</label>
+                                        <input id="nis" type="text"
+                                            class="form-control @error('nis') is-invalid @enderror" name="nis"
+                                            value="{{ old('nis') }}" required autocomplete="nis">
 
-                            <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nama') }}</label>
+                                        @error('nis')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="foto-calon">{{ __('Kelas') }}</label>
+                                        <select class="form-select" name="kelas">
+                                            @foreach ($kelas as $kelas)
+                                                <option value="{{ $kelas->kelas }}">{{ $kelas->kelas }}</option>
+                                            @endforeach
 
-                                <div class="col-md-6">
-                                    <input id="nama" type="text"
-                                        class="form-control @error('nama') is-invalid @enderror" name="nama"
-                                        value="{{ old('nama') }}" required autocomplete="nama" autofocus>
+                                        </select>
+                                        @error('kelas')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="visi">{{ __('Password') }}</label>
+                                        <input id="password" type="password"
+                                            class="form-control @error('password') is-invalid @enderror" name="password"
+                                            required autocomplete="new-password">
 
-                                    @error('nama')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="misi">{{ __('Confirm Password') }}</label>
+                                        <input id="password-confirm" type="password" class="form-control"
+                                            name="password_confirmation" required autocomplete="new-password">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary me-1 mb-1">
+                                            {{ __('Register') }}
+                                        </button>
+
+                                        <button type="reset" class="btn btn-light-secondary me-1 mb-1"
+                                            required>Reset</button>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="row mb-3">
-                                <label for="nis"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Nis') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="nis" type="text"
-                                        class="form-control @error('nis') is-invalid @enderror" name="nis"
-                                        value="{{ old('nis') }}" required autocomplete="nis">
-
-                                    @error('nis')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="kelas"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Kelas') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="kelas" type="text"
-                                        class="form-control @error('kelas') is-invalid @enderror" name="kelas"
-                                        value="{{ old('kelas') }}" required autocomplete="kelas">
-
-                                    @error('kelas')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-
-
-                            <div class="row mb-3">
-                                <label for="password"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="new-password">
-
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
-                                </div>
-                            </div>
-
-                            <div class="row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @endsection
