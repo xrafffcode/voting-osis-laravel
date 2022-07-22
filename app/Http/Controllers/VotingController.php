@@ -9,8 +9,13 @@ use Illuminate\Http\Request;
 
 class VotingController extends Controller
 {
-    public function vote(Request $request, $id)
-    {
+  public function vote(Request $request, $id)
+  {
+
+    $user = User::where('id', $request->user()->id)->value('voting');
+
+
+    if ($user == "false") {
       User::where('id', $request->user()->id)->update([
         'voting' => "true"
       ]);
@@ -23,7 +28,9 @@ class VotingController extends Controller
 
       Calons::where('id_calon', $id)->increment('suara');
 
-      return redirect()->back()->with('success', 'Terima kasih telah memilih');
+      return view('succes');
+    } else {
+      return redirect()->back();
     }
-    
+  }
 }
