@@ -55,7 +55,12 @@
                         <span>Tambah Kandidat</span>
                     </a>
                 </li>
-
+                <li class="sidebar-item {{ request()->routeIs('register') ? 'active' : '' }}">
+                    <a href="{{ route('register') }}" class='sidebar-link'>
+                        <i class="bi bi-people-fill"></i>
+                        <span>Tambah Pemilih</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
