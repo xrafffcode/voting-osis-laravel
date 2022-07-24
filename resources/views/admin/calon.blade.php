@@ -7,13 +7,13 @@
     @if (Session::has('success'))
         <div class="alert alert-success alert-dismissible show fade">
             {{ Session::get('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close text-white" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
     @if (Session::has('deleted'))
         <div class="alert alert-danger alert-dismissible show fade">
             {{ Session::get('deleted') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close text-white" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
     <section id="basic-vertical-layouts">
