@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('foto_calon', 250);
             $table->text('visi');
             $table->text('misi');
+            $table->integer('suara')->default(0);
 
             $table->timestamps();
         });

@@ -61,6 +61,12 @@
                         <span>Tambah Pemilih</span>
                     </a>
                 </li>
+                <li class="sidebar-item {{ request()->routeIs('admin.pemilih') ? 'active' : '' }}">
+                    <a href="{{ route('admin.pemilih') }}" class='sidebar-link'>
+                        <i class="bi bi-people-fill"></i>
+                        <span>Data Pemilih</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
