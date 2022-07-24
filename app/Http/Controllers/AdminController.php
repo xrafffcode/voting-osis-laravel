@@ -109,4 +109,25 @@ class AdminController extends Controller
 
         return redirect()->route('admin.calon')->with('success', 'Kandidat Berhasil Diubah');
     }
+
+    public function dataPemilih()
+    {
+        $pemilih = User::all();
+        return view('admin.pemilih', compact('pemilih'));
+    }
+
+    public function resetPemilih($id)
+    {
+        User::where('id', $id)->update([
+            'voting' => "false",
+        ]);
+
+        return redirect()->back()->with('success', 'Pemilih Berhasil Direset');
+    }
+
+    public function deletePemilih($id)
+    {
+        User::where('id', $id)->delete();
+        return redirect()->back()->with('deleted', 'Pemilih Berhasil Dihapus');
+    }
 }
