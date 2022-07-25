@@ -36,7 +36,6 @@
                                                                                                                                                                                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
                                 <i class="icon-mid bi bi-box-arrow-left me-2"></i>{{ __('Logout') }}
                             </a>
-
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>

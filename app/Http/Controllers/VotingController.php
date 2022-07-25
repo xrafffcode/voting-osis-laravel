@@ -17,10 +17,12 @@ class VotingController extends Controller
 
     if ($user == "false") {
       User::where('id', $request->user()->id)->update([
-        'voting' => "true"
+        'voting' => "true",
+        'voting_id' => $id
       ]);
 
       Voting::create([
+        'id_user' => $request->user()->id,
         'nama' => $request->user()->nama,
         'kelas' => $request->user()->kelas,
         'id_calon' => $id

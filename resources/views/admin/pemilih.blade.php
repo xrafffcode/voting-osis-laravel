@@ -48,7 +48,8 @@
                                         {{ $p->role }}
                                     </td>
                                     <td nowrap="nowrap">
-                                        <a href="{{ route('admin.resetPemilih', $p->id) }}" class="btn btn-primary">Reset
+                                        <a href="{{ route('admin.resetPemilih', [$p->id, $p->voting_id]) }}"
+                                            class="btn btn-primary">Reset
                                             Voting</a>
                                         <a href="{{ route('admin.deletePemilih', $p->id) }}"
                                             class="btn btn-danger">Hapus</a>

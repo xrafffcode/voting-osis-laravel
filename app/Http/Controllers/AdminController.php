@@ -116,10 +116,15 @@ class AdminController extends Controller
         return view('admin.pemilih', compact('pemilih'));
     }
 
-    public function resetPemilih($id)
+    public function resetPemilih($id, $id_calon)
     {
+
+        Voting::where('id_user', $id)->delete();
+        Calons::where('id_calon', $id_calon)->decrement('suara');
+
         User::where('id', $id)->update([
             'voting' => "false",
+            'voting_id' => 0,
         ]);
 
         return redirect()->back()->with('success', 'Pemilih Berhasil Direset');

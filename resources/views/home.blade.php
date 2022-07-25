@@ -19,8 +19,7 @@
                                     <div class="card-header text-center fw-bold">
                                         {{ $k->nama_ketua }} & {{ $k->nama_wakil }}
                                     </div>
-                                    <img src="{{ url('/foto_calon/' . $k->foto_calon) }}" class="card-img-top"
-                                        alt="...">
+                                    <img src="{{ url('/foto_calon/' . $k->foto_calon) }}" class="card-img-top" alt="...">
                                     <div class="card-body p-0">
                                         <div class="accordion accordion-flush" id="accordionFlushExample">
                                             <div class="accordion-item">

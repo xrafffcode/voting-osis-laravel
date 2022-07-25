@@ -39,6 +39,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/pemilihTerkini', ApiVotingController::class . '@getPemilihTerkini')->name('api.pemilihTerkini');
     Route::get('/sudahMemilih', ApiVotingController::class . '@getSudahMemilih')->name('api.sudahMemilih');
     Route::get('/pemilih', AdminController::class . '@dataPemilih')->name('admin.pemilih');
-    Route::get('/resetPemilih/{id}', AdminController::class . '@resetPemilih')->name('admin.resetPemilih');
+    Route::get('/resetPemilih/{id}/{id_calon}', AdminController::class . '@resetPemilih')->name('admin.resetPemilih');
     Route::get('/deletePemilih/{id}', AdminController::class . '@deletePemilih')->name('admin.deletePemilih');
 });

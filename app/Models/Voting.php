@@ -13,7 +13,7 @@ class Voting extends Model
     protected $table = 'votings';
 
     protected $fillable = [
-        'nama', 'kelas', 'id_calon',
+        'id_user', 'nama', 'kelas', 'id_calon',
     ];
 
     public function calons()
