@@ -18,17 +18,15 @@ class VotingController extends Controller
     if ($user == "false") {
       User::where('id', $request->user()->id)->update([
         'voting' => "true",
-        'voting_id' => $id
+        'id_calon' => $id
       ]);
 
       Voting::create([
         'id_user' => $request->user()->id,
-        'nama' => $request->user()->nama,
-        'kelas' => $request->user()->kelas,
         'id_calon' => $id
       ]);
 
-      Calons::where('id_calon', $id)->increment('suara');
+      Calons::where('id', $id)->increment('suara');
 
       return view('succes');
     } else {

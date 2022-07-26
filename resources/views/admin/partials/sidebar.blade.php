@@ -58,6 +58,7 @@
                 <li class="sidebar-item {{ request()->routeIs('register') ? 'active' : '' }}">
                     <a href="{{ route('register') }}" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
+                        <i class="bi bi-plus"></i>
                         <span>Tambah Pemilih</span>
                     </a>
                 </li>
@@ -67,6 +68,12 @@
                         <span>Data Pemilih</span>
                     </a>
                 </li>
+                {{-- <li class="sidebar-item {{ request()->routeIs('admin.pemilih') ? 'active' : '' }}">
+                    <a href="{{ route('admin.pemilih') }}" class='sidebar-link'>
+                        <i class="bi bi-plus-circle-fill"></i>
+                        <span>Data Kelas</span>
+                    </a>
+                </li> --}}
             </ul>
         </div>
     </div>

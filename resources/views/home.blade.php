@@ -63,7 +63,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="/vote/{{ $k->id_calon }}" class="d-grid gap-2 p-3">
+                                        <a href="/vote/{{ $k->id }}" class="d-grid gap-2 p-3">
                                             <button class="btn btn-primary">Vote</button>
                                         </a>
                                     </div>

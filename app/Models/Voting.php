@@ -16,8 +16,8 @@ class Voting extends Model
         'id_user', 'nama', 'kelas', 'id_calon',
     ];
 
-    public function calons()
+    public function user()
     {
-        return $this->hasMany(Calons::class);
+        return $this->belongsTo(User::class, 'id_user');
     }
 }

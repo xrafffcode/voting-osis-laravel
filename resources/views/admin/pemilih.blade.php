@@ -27,6 +27,7 @@
                                 <th>Nis</th>
                                 <th>Kelas</th>
                                 <th>Voting</th>
+                                <td>Memvoting</td>
                                 <th>Role</th>
                                 <th style="width: 10px">Aksi</th>
                             </tr>
@@ -45,12 +46,25 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @if ($p->id_calon == null)
+                                            <span>-</span>
+                                        @endif
+                                        @if ($p->id_calon != null)
+                                            {{ $p->calons->nama_ketua }} & {{ $p->calons->nama_wakil }}
+                                        @endif
+                                    </td>
+                                    <td>
                                         {{ $p->role }}
                                     </td>
                                     <td nowrap="nowrap">
-                                        <a href="{{ route('admin.resetPemilih', [$p->id, $p->voting_id]) }}"
-                                            class="btn btn-primary">Reset
-                                            Voting</a>
+                                        @if ($p->id_calon == null)
+                                            <a href="" class="btn btn-primary disabled">Reset
+                                                Voting</a>
+                                        @else
+                                            <a href="{{ route('admin.resetPemilih', [$p->id, $p->id_calon]) }}"
+                                                class="btn btn-primary">Reset
+                                                Voting</a>
+                                        @endif
                                         <a href="{{ route('admin.deletePemilih', $p->id) }}"
                                             class="btn btn-danger">Hapus</a>
                                     </td>

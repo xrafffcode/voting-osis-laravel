@@ -31,14 +31,15 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', AdminController::class . '@index')->name('admin.home');
     Route::get('/calon', AdminController::class . '@calon')->name('admin.calon');
-    Route::post('/addcalon', AdminController::class . '@addCalon')->name('admin.addcalon');
+    Route::post('/addCalon', AdminController::class . '@addCalon')->name('admin.addcalon');
     Route::get('/deletecalon/{id}', AdminController::class . '@deleteCalon')->name('admin.deletecalon');
     Route::get('/editcalon/{id}', AdminController::class . '@editCalon')->name('admin.editcalon');
-    Route::post('/updatecalon/{id}', AdminController::class . '@updateCalon')->name('admin.updatecalon');
+    Route::post('/updateCalon/{id}', AdminController::class . '@updateCalon')->name('admin.updatecalon');
     Route::get('/totalSuara', ApiVotingController::class . '@getSuara')->name('api.totalSuara');
     Route::get('/pemilihTerkini', ApiVotingController::class . '@getPemilihTerkini')->name('api.pemilihTerkini');
     Route::get('/sudahMemilih', ApiVotingController::class . '@getSudahMemilih')->name('api.sudahMemilih');
     Route::get('/pemilih', AdminController::class . '@dataPemilih')->name('admin.pemilih');
     Route::get('/resetPemilih/{id}/{id_calon}', AdminController::class . '@resetPemilih')->name('admin.resetPemilih');
     Route::get('/deletePemilih/{id}', AdminController::class . '@deletePemilih')->name('admin.deletePemilih');
+    Route::get('/kelas', AdminController::class . '@dataKelas')->name('admin.kelas');
 });

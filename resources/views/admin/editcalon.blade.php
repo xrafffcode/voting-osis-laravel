@@ -9,12 +9,12 @@
             <div class="card-content">
                 <div class="card-body">
                     @foreach ($calon as $c)
-                        <form class="form form-vertical" method="POST"
-                            action="{{ route('admin.updatecalon', $c->id_calon) }}" enctype="multipart/form-data">
+                        <form class="form form-vertical" method="POST" action="{{ route('admin.updatecalon', $c->id) }}"
+                            enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-body">
                                 <div class="row">
-                                    <input type="hidden" name="id" value="{{ $c->id_calon }}">
+                                    <input type="hidden" name="id" value="{{ $c->id }}">
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="nama-ketua">Nama Ketua</label>

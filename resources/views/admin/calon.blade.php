@@ -110,10 +110,8 @@
                                     <td>{{ $k->visi }}</td>
                                     <td>{{ $k->misi }}</td>
                                     <td nowrap="nowrap">
-                                        <a href="{{ route('admin.editcalon', $k->id_calon) }}"
-                                            class="btn btn-primary">Edit</a>
-                                        <a href="{{ route('admin.deletecalon', $k->id_calon) }}"
-                                            class="btn btn-danger">Hapus</a>
+                                        <a href="{{ route('admin.editcalon', $k->id) }}" class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('admin.deletecalon', $k->id) }}" class="btn btn-danger">Hapus</a>
                                     </td>
                                 </tr>
                             @endforeach

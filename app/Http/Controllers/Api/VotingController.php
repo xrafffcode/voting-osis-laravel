@@ -18,7 +18,8 @@ class VotingController extends Controller
 
     public function getPemilihTerkini()
     {
-        $pemilihTerkini = Voting::orderBy('created_at', 'desc')->limit(4)->get();
+        $pemilihTerkini = Voting::with(['user'])->orderBy('created_at', 'desc')->limit(4)->get();
+
         return json_decode($pemilihTerkini);
     }
 

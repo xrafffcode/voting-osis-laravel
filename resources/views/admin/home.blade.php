@@ -77,7 +77,7 @@
                                     <img src="{{ url('/foto_calon/' . $k->foto_calon) }}" class="card-img-top"
                                         alt="...">
                                     <div class="card-body text-center">
-                                        <h5 class="mt-3" id="vote{{ $k->id_calon }}"></h5>
+                                        <h5 class="mt-3" id="vote{{ $k->id }}"></h5>
                                     </div>
                                 </div>
                             </div>
@@ -160,13 +160,13 @@
                 url: '{{ route('api.totalSuara') }}',
                 success: function(data) {
                     @foreach ($kandidat as $k)
-                        $('#vote{{ $k->id_calon }}').html(data[{{ $k->id_calon - 1 }}].suara +
+                        $('#vote{{ $k->id }}').html(data[{{ $k->id - 1 }}].suara +
                             ' Suara');
                     @endforeach
 
                     chart.updateSeries([
                         @foreach ($kandidat as $k)
-                            data[{{ $k->id_calon - 1 }}].suara,
+                            data[{{ $k->id - 1 }}].suara,
                         @endforeach
                     ]);
 
@@ -183,8 +183,8 @@
                 url: '{{ route('api.pemilihTerkini') }}',
                 success: function(data) {
                     for (let el of number) {
-                        $('#namapemlih' + [el]).html(data[el].nama);
-                        $('#kelaspemilih' + [el]).html(data[el].kelas);
+                        $('#namapemlih' + [el]).html(data[el].user.nama);
+                        $('#kelaspemilih' + [el]).html(data[el].user.kelas);
                         if (el === 3) {
                             break;
                         }

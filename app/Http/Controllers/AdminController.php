@@ -75,7 +75,7 @@ class AdminController extends Controller
 
     public function deleteCalon($id)
     {
-        Calons::where('id_calon', $id)->delete();
+        Calons::where('id', $id)->delete();
 
         $image_path = 'foto_calon/' . $id . '.jpg';
         if (File::exists($image_path)) {
@@ -87,7 +87,7 @@ class AdminController extends Controller
 
     public function editCalon($id)
     {
-        $calon = Calons::where('id_calon', $id)->get();
+        $calon = Calons::where('id', $id)->get();
         return view('admin.editcalon', compact('calon'));
     }
 
@@ -100,7 +100,7 @@ class AdminController extends Controller
             'misi' => 'required',
         ]);
 
-        Calons::where('id_calon', $id)->update([
+        Calons::where('id', $id)->update([
             'nama_ketua' => $request->nama_ketua,
             'nama_wakil' => $request->nama_wakil,
             'visi' => $request->visi,
@@ -112,19 +112,20 @@ class AdminController extends Controller
 
     public function dataPemilih()
     {
-        $pemilih = User::all();
-        return view('admin.pemilih', compact('pemilih'));
+        return view('admin.pemilih', [
+            'pemilih' => User::with(['calons'])->get()
+        ]);
     }
 
     public function resetPemilih($id, $id_calon)
     {
 
         Voting::where('id_user', $id)->delete();
-        Calons::where('id_calon', $id_calon)->decrement('suara');
+        Calons::where('id', $id_calon)->decrement('suara');
 
         User::where('id', $id)->update([
             'voting' => "false",
-            'voting_id' => 0,
+            'id_calon' => NULL
         ]);
 
         return redirect()->back()->with('success', 'Pemilih Berhasil Direset');
