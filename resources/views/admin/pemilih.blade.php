@@ -18,6 +18,7 @@
             <div class="card-header">
                 Data Pemlih
             </div>
+
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-striped" id="table1">

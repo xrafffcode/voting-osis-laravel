@@ -39,6 +39,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/pemilihTerkini', ApiVotingController::class . '@getPemilihTerkini')->name('api.pemilihTerkini');
     Route::get('/sudahMemilih', ApiVotingController::class . '@getSudahMemilih')->name('api.sudahMemilih');
     Route::get('/pemilih', AdminController::class . '@dataPemilih')->name('admin.pemilih');
+    Route::post('/importPemilih', AdminController::class . '@importPemilih')->name('admin.importPemilih');
+    Route::get('/downloadTemplate', AdminController::class . '@downloadTemplate')->name('admin.downloadTemplate');
     Route::get('/resetPemilih/{id}/{id_calon}', AdminController::class . '@resetPemilih')->name('admin.resetPemilih');
     Route::get('/deletePemilih/{id}', AdminController::class . '@deletePemilih')->name('admin.deletePemilih');
     Route::get('/kelas', AdminController::class . '@dataKelas')->name('admin.kelas');

@@ -14,11 +14,11 @@ class Calons extends Model
     protected $table = 'calons';
 
     protected $fillable = [
-        'id_calon', 'nama_ketua', 'nama_wakil', 'foto_calon', 'visi', 'misi', 'suara'
+        'id', 'nama_ketua', 'nama_wakil', 'foto_calon', 'visi', 'misi', 'suara'
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'id_calon');
+        return $this->belongsTo(User::class, 'id');
     }
 }

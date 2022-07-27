@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Calons;
+use App\Models\ImportPemilih;
 use App\Models\User;
 use App\Models\Voting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class AdminController extends Controller
 {
@@ -33,6 +36,24 @@ class AdminController extends Controller
             'kandidat' => $kandidat,
             'number' => $number
         ]);
+    }
+
+    public function importPemilih(Request $request)
+    {
+        // validasi
+        $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx'
+        ]);
+
+        Excel::import(new ImportPemilih, $request->file('file'));
+
+        return redirect()->back()->with('success', 'Pemilih berhasil di import');
+    }
+
+    public function downloadTemplate()
+    {
+        $file = public_path('template_excel\import_pemilih.xlsx');
+        return response()->download($file);
     }
 
     public function calon()
@@ -62,7 +83,7 @@ class AdminController extends Controller
         $image->move($tujuan_upload, $nama_foto);
 
         Calons::create([
-            'id_calon' => $calon->count() + 1,
+            'id' => $calon->count() + 1,
             'nama_ketua' => $request->nama_ketua,
             'nama_wakil' => $request->nama_wakil,
             'foto_calon' => $nama_foto,
@@ -75,7 +96,7 @@ class AdminController extends Controller
 
     public function deleteCalon($id)
     {
-        Calons::where('id', $id)->delete();
+        $table = Calons::where('id', $id)->delete();
 
         $image_path = 'foto_calon/' . $id . '.jpg';
         if (File::exists($image_path)) {
