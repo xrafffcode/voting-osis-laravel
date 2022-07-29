@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
 
             $table->integer('id_user');
-            $table->string('nama');
-            $table->string('kelas');
             $table->foreignId('id_calon');
 
             $table->timestamps();
