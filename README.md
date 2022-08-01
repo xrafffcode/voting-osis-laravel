@@ -23,6 +23,3 @@ php artisan serve.
 
 Project ini dibuat menggunakan Laravel versi 9 dan menggunakan template admin [Mazer](https://zuramai.github.io/mazer/).
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
