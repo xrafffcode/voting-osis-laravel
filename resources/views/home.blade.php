@@ -8,7 +8,6 @@
     </style>
 
     <div class="container">
-
         <div class="row justify-content-center">
             <div class="col-md-8">
                 @if (auth()->user()->voting == 'false')
@@ -23,19 +22,19 @@
                                     <div class="card-body p-0">
                                         <div class="accordion accordion-flush" id="accordionFlushExample">
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header" id="flush-headingVisi{{ $k->id_calon }}">
+                                                <h2 class="accordion-header" id="flush-headingVisi{{ $k->id }}">
                                                     <button class="accordion-button collapsed"
                                                         style="box-shadow: 0 0 0 0rem " type="button"
                                                         data-bs-toggle="collapse"
-                                                        data-bs-target="#flush-collapseVisi{{ $k->id_calon }}"
+                                                        data-bs-target="#flush-collapseVisi{{ $k->id }}"
                                                         aria-expanded="false"
-                                                        aria-controls="flush-collapseVisi{{ $k->id_calon }}">
+                                                        aria-controls="flush-collapseVisi{{ $k->id }}">
                                                         Visi
                                                     </button>
                                                 </h2>
-                                                <div id="flush-collapseVisi{{ $k->id_calon }}"
+                                                <div id="flush-collapseVisi{{ $k->id }}"
                                                     class="accordion-collapse collapse"
-                                                    aria-labelledby="flush-headingVisi{{ $k->id_calon }}"
+                                                    aria-labelledby="flush-headingVisi{{ $k->id }}"
                                                     data-bs-parent="#accordionFlushExample">
                                                     <div class="accordion-body">
                                                         {{ $k->visi }}
@@ -43,19 +42,19 @@
                                                 </div>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header" id="flush-headingMisi{{ $k->id_calon }}">
+                                                <h2 class="accordion-header" id="flush-headingMisi{{ $k->id }}">
                                                     <button class="accordion-button collapsed"
                                                         style="box-shadow: 0 0 0 0rem " type="button" type="button"
                                                         data-bs-toggle="collapse"
-                                                        data-bs-target="#flush-collapse{{ $k->id_calon }}"
+                                                        data-bs-target="#flush-collapse{{ $k->id }}"
                                                         aria-expanded="false"
-                                                        aria-controls="flush-collapse{{ $k->id_calon }}">
+                                                        aria-controls="flush-collapse{{ $k->id }}">
                                                         Misi
                                                     </button>
                                                 </h2>
-                                                <div id="flush-collapse{{ $k->id_calon }}"
+                                                <div id="flush-collapse{{ $k->id }}"
                                                     class="accordion-collapse collapse"
-                                                    aria-labelledby="flush-headingMisi{{ $k->id_calon }}"
+                                                    aria-labelledby="flush-headingMisi{{ $k->id }}"
                                                     data-bs-parent="#accordionFlushExample">
                                                     <div class="accordion-body">
                                                         {{ $k->misi }}

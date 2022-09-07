@@ -15,10 +15,7 @@
     <div id="error">
         <div class="error-page container">
             @yield('content')
-
         </div>
-
-
     </div>
 </body>
 

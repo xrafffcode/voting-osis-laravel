@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('layouts.admin')
 @section('title', 'Dashboard')
 @section('content')
     @if (Session::has('success'))

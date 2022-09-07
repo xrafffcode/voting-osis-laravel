@@ -13,13 +13,10 @@
 
 <body>
     <div id="error">
-
-
         <div class="error-page container">
             <div class="col-md-8 col-12 offset-md-2">
                 <div class="text-center">
-                    <img class="img-error" src="{{ asset('assets/images/undraw_voting_nvu7 (1).svg') }}"
-                        alt="Succes">
+                    <img class="img-error" src="{{ asset('assets/images/undraw_voting_nvu7 (1).svg') }}" alt="Succes">
                     <h1 class="error-title">Voting Berhasil</h1>
                     <p class="fs-5 text-gray-600">Terimakasih telah melakukan voting :D.</p>
                     <a class="btn btn-lg btn-outline-primary mt-3" href="{{ route('logout') }}"
@@ -35,8 +32,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </body>
 
