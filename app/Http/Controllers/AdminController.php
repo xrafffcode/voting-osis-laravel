@@ -91,7 +91,7 @@ class AdminController extends Controller
             'misi' => $request->misi,
         ]);
 
-        return redirect()->back()->with('success', 'Kandidat Berhasil Ditambahkan');
+        return redirect()->route('calon.index')->with('success', 'Kandidat Berhasil Ditambahkan');
     }
 
     public function deleteCalon($id)
