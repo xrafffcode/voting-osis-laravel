@@ -98,9 +98,9 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="foto-calon">{{ __('Kelas') }}</label>
-                                        <select class="form-select" name="kelas">
+                                        <select class="form-select" name="kelas_id">
                                             @foreach ($kelas as $kelas)
-                                                <option value="{{ $kelas->kelas }}">{{ $kelas->kelas }}</option>
+                                                <option value="{{ $kelas->id }}">{{ $kelas->kelas }}</option>
                                             @endforeach
 
                                         </select>

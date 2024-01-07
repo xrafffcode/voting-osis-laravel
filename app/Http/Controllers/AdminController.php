@@ -134,7 +134,7 @@ class AdminController extends Controller
     public function dataPemilih()
     {
         return view('admin.pemilih', [
-            'pemilih' => User::with(['calons'])->get()
+            'pemilih' => User::with(['calons', 'kelas'])->get()
         ]);
     }
 
@@ -145,7 +145,7 @@ class AdminController extends Controller
         Calons::where('id', $id_calon)->decrement('suara');
 
         User::where('id', $id)->update([
-            'voting' => "false",
+            'voting' => 0,
             'id_calon' => NULL
         ]);
 

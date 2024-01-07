@@ -17,7 +17,7 @@ class ImportPemilih implements ToModel, WithHeadingRow
         return new User([
             'nama' => $row['nama'],
             'nis' => $row['nis'],
-            'kelas' => $row['kelas'],
+            'kelas_id' => $row['kelas_id'],
             'password' => Hash::make($row['password']),
         ]);
     }

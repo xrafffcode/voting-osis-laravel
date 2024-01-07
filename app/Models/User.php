@@ -22,7 +22,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'nama', 'nis', 'kelas', 'voting', 'password', 'id_calon'
+        'nama', 'nis', 'kelas_id', 'voting', 'password', 'id_calon'
     ];
 
     /**
@@ -47,5 +47,10 @@ class User extends Authenticatable
     public function calons()
     {
         return $this->hasOne(Calons::class, 'id', 'id_calon');
+    }
+
+    public function kelas()
+    {
+        return $this->hasOne(Kelas::class, 'id', 'kelas_id');
     }
 }

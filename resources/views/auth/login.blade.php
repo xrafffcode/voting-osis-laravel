@@ -39,24 +39,14 @@
                             <i class="bi bi-shield-lock"></i>
                         </div>
                     </div>
-                    <div class="form-check form-check-lg d-flex align-items-end">
 
-                        <input class="form-check-input me-2" type="checkbox" name="remember" id="remember"
-                            {{ old('remember') ? 'checked' : '' }}>
-                        <label class="form-check-label text-gray-600" for="flexCheckDefault">
-                            Keep me logged in
-                        </label>
-                    </div>
-                    <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
+                    <button class="btn btn-primary btn-block btn-lg shadow-lg mt-2">Log in</button>
                 </form>
-                <div class="text-center mt-5 text-lg fs-4">
-                    {{-- @if (Route::has('register'))
-                        <p class="text-gray-600">Don't have an account? <a href="{{ route('register') }}"
-                                class="font-bold">Sign
-                                up</a>.</p>
-                    @endif --}}
-
-                    <p><a class="font-bold" href="{{ route('password.request') }}">Forgot password?</a>.</p>
+                <div class="text-center mt-4 text-lg fs-4">
+                    <p class="text-sm">
+                        This website made with <span style="color: #e25555;">♥</span> by <a
+                            href="https://github.com/xrafffcode" target="blank" class="cc">xrafff.code</a>
+                    </p>
                 </div>
             </div>
         </div>

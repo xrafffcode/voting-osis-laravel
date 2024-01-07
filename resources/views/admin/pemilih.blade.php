@@ -38,9 +38,9 @@
                                 <tr>
                                     <td>{{ $p->nama }}</td>
                                     <td>{{ $p->nis }}</td>
-                                    <td>{{ $p->kelas }}</td>
+                                    <td>{{ $p->kelas->kelas }}</td>
                                     <td>
-                                        @if ($p->voting == 'true')
+                                        @if ($p->voting == 1)
                                             <span class="badge bg-success">Sudah Voting</span>
                                         @else
                                             <span class="badge bg-danger">Belum Voting</span>

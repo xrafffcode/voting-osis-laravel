@@ -24,7 +24,7 @@ class VotingController extends Controller
 
     public function getSudahMemilih()
     {
-        $sudahMemilih = User::where('voting', "true")->count();
+        $sudahMemilih = User::where('voting', 1)->count();
         return response()->json($sudahMemilih);
     }
 }

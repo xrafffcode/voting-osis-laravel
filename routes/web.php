@@ -37,7 +37,7 @@ Route::prefix('admin')
         Route::resource('calon', CalonController::class);
 
 
-
+        Route::post('/tambahCalon', AdminController::class . '@addCalon')->name('admin.addCalon');
         Route::get('/totalSuara', ApiVotingController::class . '@getSuara')->name('api.totalSuara');
         Route::get('/pemilihTerkini', ApiVotingController::class . '@getPemilihTerkini')->name('api.pemilihTerkini');
         Route::get('/sudahMemilih', ApiVotingController::class . '@getSudahMemilih')->name('api.sudahMemilih');

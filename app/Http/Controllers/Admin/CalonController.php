@@ -28,7 +28,9 @@ class CalonController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.calon.create', [
+            'active' => 'calon'
+        ]);
     }
 
     /**

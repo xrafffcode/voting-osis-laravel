@@ -8,7 +8,7 @@
             </div>
             <div class="card-content">
                 <div class="card-body">
-                    <form class="form form-vertical" method="POST" action="{{ route('admin.addcalon') }}"
+                    <form class="form form-vertical" method="POST" action="{{ route('admin.addCalon') }}"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="form-body">

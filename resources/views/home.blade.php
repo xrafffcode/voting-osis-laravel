@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                @if (auth()->user()->voting == 'false')
+                @if (auth()->user()->voting == 0)
                     <div class="row justify-content-md-center">
                         @foreach ($kandidat as $k)
                             <div class="col-sm-4">
@@ -37,7 +37,7 @@
                                                     aria-labelledby="flush-headingVisi{{ $k->id }}"
                                                     data-bs-parent="#accordionFlushExample">
                                                     <div class="accordion-body">
-                                                        {{ $k->visi }}
+                                                        {!! $k->visi !!}
                                                     </div>
                                                 </div>
                                             </div>
@@ -57,7 +57,7 @@
                                                     aria-labelledby="flush-headingMisi{{ $k->id }}"
                                                     data-bs-parent="#accordionFlushExample">
                                                     <div class="accordion-body">
-                                                        {{ $k->misi }}
+                                                        {!! $k->misi !!}
                                                     </div>
                                                 </div>
                                             </div>
@@ -71,7 +71,7 @@
                         @endforeach
                     </div>
                 @endif
-                @if (auth()->user()->voting == 'true')
+                @if (auth()->user()->voting == 1)
                     <div class="alert alert-danger">
                         <h4 class="alert-heading">Anda Sudah Melakukan Voting</h4>
                         <p>Jika anda merasa belum melakukan voting, silahkan hubungin panitia.</p>
