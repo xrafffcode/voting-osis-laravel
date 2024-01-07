@@ -18,7 +18,7 @@ class VotingController extends Controller
         if ($user == 0) {
             User::where('id', $request->user()->id)->update([
                 'voting' => 1,
-                'id_calon' => $id
+                'voting_id' => $id
             ]);
 
             Voting::create([
